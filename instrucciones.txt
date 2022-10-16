@@ -1,0 +1,22 @@
+0- npm install (si lo acabas de descargar)
+
+1- npx hardhat compile
+
+Se compila el contrato (o los contratos) y se crean las carpetas artifacts y cache.
+Estas dos carpetas tienes que moverlas al proyecto de front (tickbit-web o tickbit-backoffice)
+normalmente dentro de la carpeta /src/solidity, pero antes elimina las dos carpetas antiguas de artifacts y cache
+que tenía.
+
+2- npx hardhat node (primer terminal)
+
+Emula un nodo de blockchain y crea una serie de cuentas test.
+
+3- npx hardhat run scripts/deploy.js --network localhost
+
+Deploya el contrato en el nodo
+
+OJO! Cuando deployas, en el terminal del nodo, te indica el contract address.
+Fíjate que ese contráctil address coincida con el address del archivo config.js de la carpeta
+./src/solidity del proyecto tickbit-web o tickbit-backoffice.
+
+4- Ya puedes iniciar el proyecto de front (tickbit-web o tickbit-backoffice) y leer datos de la blockchain simulada

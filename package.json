@@ -1,0 +1,28 @@
+{
+  "name": "solidity",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "copyartifacts": "cd ../tickbit-backoffice/src/solidity && rm -r ./artifacts && rm -r ./cache && cd ../../../tickbit-solidity && cp -r ./artifacts ../tickbit-backoffice/src/solidity && cp -r ./cache ../tickbit-backoffice/src/solidity && cd ../tickbit-web/src/solidity && rm -r ./artifacts && rm -r ./cache && cd ../../../tickbit-solidity && cp -r ./artifacts ../tickbit-web/src/solidity && cp -r ./cache ../tickbit-web/src/solidity",
+    "release": "npx hardhat clean && npx hardhat compile && npx hardhat run scripts/deploy.js --network mumbai 2>&1 | tee ./scripts/release/currentTickbitContract.txt && node ./scripts/release/cambiarReferenciaContratoTickbit.js && npx hardhat compile && npx hardhat run scripts/deploy2.js --network mumbai 2>&1 | tee ./scripts/release/currentTickbitTicketContract.txt && node ./scripts/release/cambiarReferenciaContratoTickbitTicket.js && npm run copyartifacts && cd ../tickbit-backoffice && npm run release && cd ../tickbit-web && npm run release && cd ../tickbit-solidity"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chainlink/contracts": "^0.4.1",
+    "@nomiclabs/hardhat-ethers": "^2.0.5",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "@openzeppelin/contracts": "^4.7.3",
+    "axios": "^0.26.1",
+    "chai": "^4.3.6",
+    "ethereum-waffle": "^3.4.4",
+    "ethers": "^5.6.1",
+    "fs": "^0.0.1-security",
+    "hardhat": "^2.9.1",
+    "ipfs-http-client": "^56.0.1",
+    "npm": "^8.14.0",
+    "web3modal": "^1.9.5"
+  }
+}

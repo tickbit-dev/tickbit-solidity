@@ -1,0 +1,30 @@
+1- Cambiar idCategoria y idCiudad de int a string:
+    antes: 0,1,2.. ahora id = BCN 
+
+2 - Implementar Recintos
+
+    - idRecinto
+    - Nombre
+    - idCiudad
+    - zonas(array)
+
+3 - Implementar zonas
+
+    3 zonas: graderia, pista y vip
+    Numero de tickets máximos por zona
+    Sin numerar asiento, solo un id y la zona
+
+    - idZona (FLOOR, GRANDSTAND, VIP)
+    - capacity
+    - availability
+    - price
+
+4 - 
+
+4 - Tickets
+
+    - precio
+    - _owner
+    - idRecinto
+    - idEvento
+    - idZona
